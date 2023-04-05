@@ -8,17 +8,27 @@ const nextConfig = {
     appDir: true,
   },
 
+  trailingSlash: true,
+
   rewrites() {
     return {
       beforeFiles: [],
       afterFiles: [
         {
+          source: "/",
+          destination: "/en-US/",
+        },
+        {
           source: "/page-source",
-          destination: "/page-destination",
+          destination: "/en-US/page-destination",
         },
         {
           source: "/:slug",
-          destination: "/:slug",
+          destination: "/en-US/:slug",
+        },
+        {
+          source: "/nl/:slug",
+          destination: "/nl-NL/:slug",
         },
       ],
       fallback: [],
