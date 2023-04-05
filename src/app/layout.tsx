@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const metadata = {
   title: "Reproduction example",
 };
@@ -11,11 +13,17 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        {params.locale}
-        <h1>The locale is &quot;{params.locale}&quot;</h1>
-        {children}
-      </body>
+      <p>Locale is {params.locale}</p>
+      <body>{children}</body>
+      <p>
+        <Link href="/">Go to home page</Link>
+      </p>
+      <p>
+        <Link href="/page-source/">Go to destination page</Link>
+      </p>
+      <p>
+        <Link href="/test/">Go to slug page</Link>
+      </p>
     </html>
   );
 }
