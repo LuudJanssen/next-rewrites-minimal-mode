@@ -1,8 +1,29 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
   experimental: {
     appDir: true,
   },
-}
 
-module.exports = nextConfig
+  rewrites() {
+    return {
+      beforeFiles: [],
+      afterFiles: [
+        {
+          source: "/page-source",
+          destination: "/page-destination",
+        },
+        {
+          source: "/:slug",
+          destination: "/:slug",
+        },
+      ],
+      fallback: [],
+    };
+  },
+};
+
+module.exports = nextConfig;
