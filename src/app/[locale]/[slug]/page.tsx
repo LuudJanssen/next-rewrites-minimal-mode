@@ -14,3 +14,9 @@ export default function CatchAllPage({ params }: CatchAllPageProps) {
     </main>
   );
 }
+
+export const dynamic = "force-dynamic";
+
+export function generateStaticParams() {
+  return [];
+}
